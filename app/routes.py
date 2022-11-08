@@ -11,3 +11,7 @@ def monitoring():
   MemoryDB().put_item(service_name)
 
   return jsonify({ 'status': 'ok' })
+
+@app.route('/version')
+def version():
+  return jsonify({ 'version': app.Config.VERSION })
