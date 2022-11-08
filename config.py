@@ -5,3 +5,4 @@ class Config:
   SECRET_ACCESS_KEY = os.environ.get('SECRET_ACCESS_KEY', None)
   MEMORY_DB_URL = os.environ.get('MEMORY_DB_URL', None)
   MACHINE_NAME = os.environ.get('MACHINE_NAME', None)
+  VERSION = os.environ.get('VERSION', None)
