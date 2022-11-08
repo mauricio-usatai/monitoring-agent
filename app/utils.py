@@ -4,6 +4,6 @@ def get_time_delta(frequency, date):
   date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
   parsed_frequency = frequency.split(' ')
   if parsed_frequency[2] == 'hours':
-    return int(parsed_frequency[1]) - (datetime.now() - date).hours
+    return int(parsed_frequency[1] * 3600) - (datetime.now() - date).seconds
   elif parsed_frequency[2] == 'minutes':
     return (int(parsed_frequency[1]) * 60) - (datetime.now() - date).seconds
