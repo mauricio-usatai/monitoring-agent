@@ -1,5 +1,6 @@
 from flask import request, jsonify
 from app import app
+import app as App
 
 from app.database import MemoryDB
 
@@ -14,4 +15,4 @@ def monitoring():
 
 @app.route('/version')
 def version():
-  return jsonify({ 'version': app.Config.VERSION })
+  return jsonify({ 'version': App.Config.VERSION })
