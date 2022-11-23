@@ -43,8 +43,7 @@ def update_local_config():
       update_passive_service_status(service)
 
 def update_local_config_job():
-  #schedule.every().hour.at(':00').do(update_local_config)
-  schedule.every().minute.do(update_local_config)
+  schedule.every().hour.at(':00').do(update_local_config)
   while True:
     schedule.run_pending()
     time.sleep(1)
