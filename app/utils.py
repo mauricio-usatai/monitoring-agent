@@ -2,8 +2,11 @@ from datetime import datetime
 
 def get_time_delta(frequency, date):
   date = datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
-  parsed_frequency = frequency.split(' ')
-  if parsed_frequency[2] == 'hours':
-    return int(parsed_frequency[1] * 3600) - (datetime.now() - date).seconds
-  elif parsed_frequency[2] == 'minutes':
-    return (int(parsed_frequency[1]) * 60) - (datetime.now() - date).seconds
+  _, _frequency, _type = frequency.split(' ')
+
+  diff = datetime.now() - date
+
+  if _type == 'hours':
+    return int(_frequency) * 3600 - (diff.seconds + (diff.days * 60 * 60 * 24))
+  elif _type == 'minutes':
+    return int(_frequency) * 60 - (diff.seconds + (diff.days * 60 * 60 * 24))
