@@ -28,7 +28,6 @@ def update_passive_service_status(service):
   else:
     time_diff = get_time_delta(service['passive']['frequency'], last_service_status['date'])
     status = 'ok' if time_diff > 0 else 'notok'
-    print(str(datetime.datetime.now()), service['name'], status)
     MemoryDB().update_status(service['name'], status)
 
 def update_local_config():
@@ -43,7 +42,7 @@ def update_local_config():
       update_passive_service_status(service)
 
 def update_local_config_job():
-  schedule.every().hour.at(':00').do(update_local_config)
+  schedule.every().hour.at('00:00').do(update_local_config)
   while True:
     schedule.run_pending()
     time.sleep(1)
