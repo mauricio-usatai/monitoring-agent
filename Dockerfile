@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 
 # Run the application:
 COPY . .
-CMD ["gunicorn", "app:app", "--log-level", "debug"]
+CMD ["gunicorn", "app:app"]

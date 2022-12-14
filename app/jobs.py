@@ -42,12 +42,11 @@ def update_local_config():
       update_active_service_status(service)
 
     elif service['_type'] == 'passive':
-      print(service)
       update_passive_service_status(service)
 
 
 def update_local_config_job():
-  schedule.every().hour.at('35:00').do(update_local_config)
+  schedule.every().hour.at('00:00').do(update_local_config)
   while True:
     schedule.run_pending()
     time.sleep(1)
