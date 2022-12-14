@@ -35,7 +35,7 @@ def update_local_config():
   m_config = DynamoDB().get_config()
 
   # Clear status
-  MemoryDB.clear_status()
+  MemoryDB().clear_status()
 
   for service in m_config:
     if service['_type'] == 'active': 
