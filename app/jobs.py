@@ -42,6 +42,7 @@ def update_local_config():
       update_active_service_status(service)
 
     elif service['_type'] == 'passive':
+      print(service)
       update_passive_service_status(service)
 
 
