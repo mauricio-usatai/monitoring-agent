@@ -1,4 +1,3 @@
-import json
 import requests
 from datetime import datetime
 
@@ -51,6 +50,7 @@ class MemoryDB:
   
   def update_status(self, service_name, service_status):
     status = self.get_item('status')
+
     status[service_name] = {
       'status': service_status,
       'date': str(datetime.now()),
@@ -67,6 +67,16 @@ class MemoryDB:
       json=new_status,
       headers=headers,
     )
-    print(reponse.json())
 
-    print(status)
+  def clear_status(self):
+    new_status = {
+      'status': {},
+      'name': 'status',
+    } 
+
+    headers = { 'Content-Type': 'application/json' }
+    reponse = requests.post(
+      f'{self.url}/monitoring',
+      json=new_status,
+      headers=headers,
+    )
