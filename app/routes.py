@@ -8,7 +8,6 @@ from app.database import MemoryDB
 def monitoring():
 
   service_name = request.args.get('name')
-  print(f'Passive check for {service_name}')
   MemoryDB().put_item(service_name)
 
   return jsonify({ 'status': 'ok' })
