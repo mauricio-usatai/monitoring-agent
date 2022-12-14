@@ -47,7 +47,7 @@ def update_local_config():
 
 
 def update_local_config_job():
-  schedule.every().hour.at('00:20').do(update_local_config)
+  schedule.every().hour.at('00:26').do(update_local_config)
   while True:
     schedule.run_pending()
     time.sleep(1)
